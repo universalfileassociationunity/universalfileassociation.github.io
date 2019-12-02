@@ -1,0 +1,585 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Deeplinking and Domain Association plugin for Unity">
+      
+      
+        <link rel="canonical" href="https://universaldeeplinking.imaginationoverflow.com/Internals/">
+      
+      
+        <meta name="author" content="ImaginationOverflow - Ana Correia & Diogo Cardoso">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+    
+    
+      
+        <title>Inside the Plugin - Universal Deeplinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.ba0fd1a6.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#overview" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal Deeplinking" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Universal Deeplinking
+              </span>
+              <span class="md-header-nav__topic">
+                Inside the Plugin
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="48" height="48">
+      
+    </span>
+    Universal Deeplinking
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../GettingStarted/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DomainAssociation/" title="Domain Association" class="md-nav__link">
+      Domain Association
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../SteamIntegration/" title="Steam Integration" class="md-nav__link">
+      Steam Integration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Inside the Plugin
+      </label>
+    
+    <a href="./" title="Inside the Plugin" class="md-nav__link md-nav__link--active">
+      Inside the Plugin
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime" title="Runtime" class="md-nav__link">
+    Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
+    iOS/tvOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-uwp-windows-store-games" title="Windows UWP (Windows Store Games)" class="md-nav__link">
+    Windows UWP (Windows Store Games)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-and-windows" title="Linux and Windows" class="md-nav__link">
+    Linux and Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mac" title="Mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Showcase/" title="Showcase" class="md-nav__link">
+      Showcase
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../About/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime" title="Runtime" class="md-nav__link">
+    Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
+    iOS/tvOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-uwp-windows-store-games" title="Windows UWP (Windows Store Games)" class="md-nav__link">
+    Windows UWP (Windows Store Games)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-and-windows" title="Linux and Windows" class="md-nav__link">
+    Linux and Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mac" title="Mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Inside the Plugin</h1>
+                
+                <p>On this section, we talk a little on how the plugin works on each platform and explain why it has some caveats on some platforms. </p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><img alt="plugincontent.png" src="../imgs/plugincontent.png" /></p>
+<p>The plugin content can be found inside the folder <strong>Plugins/ImaginationOverflow/UniversalDeepLinking</strong>, making easy to install and update when required. </p>
+<p>We included a simple <strong>Demo</strong> scene that allows you to test and play with the plugin before integrating it in your game.</p>
+<p>Inside the <strong>libs</strong> folder os all the required dlls in order for the plugin to work:</p>
+<ul>
+<li><em>ImaginationOverflow.UniversalDeepLinking.dll</em> - Contains the public API of the plugin</li>
+<li><em>.Core.dll</em> - Contains the core elements of the plugin</li>
+<li><em>.Editor.dll</em> - Contains the windows and user interface of the plugin</li>
+<li><em>.Platform.dll</em> - Contains the specific implementation for each platform, Android, iOS, UWP and Standalone.</li>
+</ul>
+<p>The <strong>Tools</strong> folder contains external tools that the plugin requires in order to work correctly, right now, the only external tool we are using is <a href="https://github.com/alexzielenski/optool">optool</a>, required for MacOs builds.</p>
+<p>The plugin configurations are saved under <strong>Resources/ImaginationOverflow/UniversalDeepLink</strong>, facilitating the use of source control systems on development. This file is also required on some build targets at runtime, reason why it's directly under the Resources folder.</p>
+<h3 id="runtime">Runtime<a class="headerlink" href="#runtime" title="Permanent link">&para;</a></h3>
+<p>At runtime the plugin creates a single <strong>GameObject</strong> and adds it to your current scene, this GameObject purpose is to ensure that all activation callbacks are called inside Unity main thread as well as propagate the <strong>pause</strong> events of the game to the plugin. The latter enables the plugin to refresh the activation data on some mobile platforms.</p>
+<h2 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h2>
+<p>The plugin handles all manifest registrations when you make a build, the plugin <strong>doesn't</strong> override the default activity enabling it to work with the most used plugins in the Asset Store. The Deep Linking and Domain Association activation is checked everytime the game is opened or resumed.</p>
+<h2 id="iostvos">iOS/tvOS<a class="headerlink" href="#iostvos" title="Permanent link">&para;</a></h2>
+<p>The iOS integration uses a static library <strong>libUniversalDeepLink.a</strong> in order to receive information about the app activation. Just like on Android the plugin handles all registrations on <strong>info.plist</strong> and <strong>entitlements</strong> files. The library included in the plugin notifies it everytime the game was opened via deep link or domain association activation.</p>
+<h2 id="windows-uwp-windows-store-games">Windows UWP (Windows Store Games)<a class="headerlink" href="#windows-uwp-windows-store-games" title="Permanent link">&para;</a></h2>
+<p>Just like the previous mobile platforms, the plugin automatically configures the <strong>Package.appxmanifest</strong> file with your configuration. </p>
+<p>In order for the plugin to work it edits the OnActivated event under <em>App.xaml.cs</em>, <em>App.xaml.cpp</em> or <em>App.cpp</em> depending on what <strong>Build Type</strong> (Xaml or D3D) and <strong>Scripting Backend</strong> (.NET or IL2CPP) you configure. The plugin should also work on <strong>Xbox UWP</strong> games but it was impossible to test on an actual console in order to get confirmation.</p>
+<h2 id="linux-and-windows">Linux and Windows<a class="headerlink" href="#linux-and-windows" title="Permanent link">&para;</a></h2>
+<p>Linux the deep link registration is done the <strong>first time the player opens the game</strong>. To accomplish this the plugin creates a <a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop File</a> on the player machine, enabling the operating system to set up the game as a target of a custom protocol. </p>
+<p>Windows, the game writes in the registry the information necessary to enable the OS to open the game every time the player clicks on a configured deep link URI.</p>
+<p>The protocol registration is also done everytime the <strong><a href="https://docs.unity3d.com/ScriptReference/Application-version.html">Application.version</a></strong> is changed, enabling you to change the configuration with an update. </p>
+<p>If the game build is for Steam, the plugin configures Steam to be the target of your custom URI instead of the game (this is done to work around DRM) but configures Steam to launch your game with the Uri that opened steam.</p>
+<p>Linux and Windows builds (Steam or Standalone) can't be activated via a Deep Link <strong>after the game is already running.</strong> This is because the link activation information is passed via argument on the <strong>main</strong> function, making it impossible (right now at least) to get information of the activation link after the game is already running.</p>
+<h2 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h2>
+<p>All manifest registrations are handled by the plugin, the deep linking activation is deferred from our library into the game as it happens, so MacOs builds won't have the caveats that Windows and Linux have.</p>
+<p>In order to support Deep Linking we had to make a <strong>library</strong> (<em>UniversalDeepLink.framework</em>) that would intercept the activation events of the application itself since Unity doesn't allow the plugin to automatically link a library on the build process it must be done after the build. To make that possible the plugin includes the tool <strong>optool</strong>. </p>
+<p>optool allow us to inject the library into the game and collect all the activation events. If you build your game on MacOs the plugin <strong>will automatically</strong> call optool and inject the library. If you make the build on any other OS you will need to make an extra step, just has explained on the <a href="../GettingStarted/#building-for-macos-on-windows">Getting Started Section</a>. </p>
+<p>This requirement exists because optool was made for MacOs and the team couldn't in useful time port it to Windows.</p>
+<p>For more info about how the library injection works check <a href="http://eppz.eu/blog/override-app-delegate-unity-ios-osx-4/">here</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../SteamIntegration/" title="Steam Integration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Steam Integration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Showcase/" title="Showcase" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Showcase
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 ImaginationOverflow
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://imaginationoverflow.com" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://twitter.com/ImaginationOver" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/imaginationoverflowpt/" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://store.steampowered.com/developer/imaginationoverflow" class="md-footer-social__link fa fa-steam"></a>
+    
+      <a href="https://play.google.com/store/apps/dev?id=4645635746246236605" class="md-footer-social__link fa fa-android"></a>
+    
+      <a href="https://itunes.apple.com/us/developer/diogo-cardoso/id1294879672" class="md-footer-social__link fa fa-apple"></a>
+    
+      <a href="https://www.microsoft.com/en-us/search/shop?q=ImaginationOverflow" class="md-footer-social__link fa fa-windows"></a>
+    
+      <a href="https://discord.gg/5TYmJtY" class="md-footer-social__link fa fa-support"></a>
+    
+      <a href="mailto:contact@imaginationoverflow.com" class="md-footer-social__link fa fa-mail-reply"></a>
+    
+      <a href="https://www.linkedin.com/in/diogocardoso89/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.patreon.com/imaginationoverflow/posts" class="md-footer-social__link fa fa-feed"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a59e2a89.js"></script>
+      
+      <script>app.initialize({version:"0.17.4",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-23","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

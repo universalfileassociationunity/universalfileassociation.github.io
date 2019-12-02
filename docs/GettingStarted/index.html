@@ -1,0 +1,876 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Deeplinking and Domain Association plugin for Unity">
+      
+      
+        <link rel="canonical" href="https://universaldeeplinking.imaginationoverflow.com/GettingStarted/">
+      
+      
+        <meta name="author" content="ImaginationOverflow - Ana Correia & Diogo Cardoso">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+    
+    
+      
+        <title>Getting Started - Universal Deeplinking</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.ba0fd1a6.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#using-the-plugin" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal Deeplinking" class="md-header-nav__button md-logo">
+          
+            <img src="../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Universal Deeplinking
+              </span>
+              <span class="md-header-nav__topic">
+                Getting Started
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../images/logo.svg" width="48" height="48">
+      
+    </span>
+    Universal Deeplinking
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting Started
+      </label>
+    
+    <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
+      Getting Started
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-plugin" title="Using the Plugin" class="md-nav__link">
+    Using the Plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-plugin" title="Configuring the Plugin" class="md-nav__link">
+    Configuring the Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-configuration" title="Global Configuration" class="md-nav__link">
+    Global Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-platform-configuration" title="Per Platform Configuration" class="md-nav__link">
+    Per Platform Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" title="Testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor" title="Editor" class="md-nav__link">
+    Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
+    iOS/tvOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulator" title="Simulator" class="md-nav__link">
+    Simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-10" title="Windows 10" class="md-nav__link">
+    Windows 10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="MacOS" class="md-nav__link">
+    MacOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standalone-caveats" title="Standalone Caveats" class="md-nav__link">
+    Standalone Caveats
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-for-macos" title="Build for MacOS" class="md-nav__link">
+    Build for MacOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-macos-on-windows" title="Building for MacOS on Windows" class="md-nav__link">
+    Building for MacOS on Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-and-windows" title="Linux and Windows" class="md-nav__link">
+    Linux and Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" title="Notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DomainAssociation/" title="Domain Association" class="md-nav__link">
+      Domain Association
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../SteamIntegration/" title="Steam Integration" class="md-nav__link">
+      Steam Integration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Internals/" title="Inside the Plugin" class="md-nav__link">
+      Inside the Plugin
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Showcase/" title="Showcase" class="md-nav__link">
+      Showcase
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../About/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-plugin" title="Using the Plugin" class="md-nav__link">
+    Using the Plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-plugin" title="Configuring the Plugin" class="md-nav__link">
+    Configuring the Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-configuration" title="Global Configuration" class="md-nav__link">
+    Global Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-platform-configuration" title="Per Platform Configuration" class="md-nav__link">
+    Per Platform Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" title="Testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor" title="Editor" class="md-nav__link">
+    Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
+    iOS/tvOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulator" title="Simulator" class="md-nav__link">
+    Simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-10" title="Windows 10" class="md-nav__link">
+    Windows 10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" title="MacOS" class="md-nav__link">
+    MacOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" title="Linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standalone-caveats" title="Standalone Caveats" class="md-nav__link">
+    Standalone Caveats
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-for-macos" title="Build for MacOS" class="md-nav__link">
+    Build for MacOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-macos-on-windows" title="Building for MacOS on Windows" class="md-nav__link">
+    Building for MacOS on Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-and-windows" title="Linux and Windows" class="md-nav__link">
+    Linux and Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" title="Notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Getting Started</h1>
+                
+                <p><strong>Universal File Association</strong> plugin enables your apps and games to be configured as the default file handler (e.g .xpto) on iOS, Android, Windows 10 (UWP), Standalone (Linux, Mac, and Windows) and tvOS.</p>
+<h2 id="using-the-plugin">Using the Plugin<a class="headerlink" href="#using-the-plugin" title="Permanent link">&para;</a></h2>
+<p>The plugin uses a single event where you need to register in order to receive file activations on all platforms:</p>
+<p><div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">FileActivated</span> <span class="p">+=</span> <span class="n">FileActivatedHandler</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">FileActivatedHandler</span><span class="p">(</span><span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">FileInformation</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//</span>
+    <span class="c1">//  my activation code</span>
+    <span class="c1">//</span>
+<span class="p">}</span>
+</pre></div>
+Never forget to remove your event registration when the <strong>GameObject</strong> where you registered it is <strong>destroyed</strong>:</p>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OnDestroy</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">FileActivated</span> <span class="p">-=</span> <span class="n">FileActivatedHandler</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>The <strong>FileActivated</strong> event will be triggered when your game is <strong>started</strong> or <strong>resumed</strong> by a file activation.</p>
+<p>The <strong>FileActivated</strong> event single argument <strong>FileInformation</strong> contains the filename, path, size, extension and a Stream of the activated file: </p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">FileInformation</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Stream</span> <span class="n">Stream</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Path</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">FileExtension</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">ulong</span> <span class="n">Size</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Consider the following example:</p>
+<div class="codehilite"><pre><span></span><span class="k">private</span> <span class="k">void</span> <span class="nf">FileActivatedHandler</span><span class="p">(</span><span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">FileInformation</span> <span class="n">fileActivated</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">size</span> <span class="p">=</span> <span class="n">fileActivated</span><span class="p">.</span><span class="n">Size</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">fileContent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamReader</span><span class="p">(</span><span class="n">fileActivated</span><span class="p">.</span><span class="n">Stream</span><span class="p">).</span><span class="n">ReadToEnd</span><span class="p">();</span>
+    <span class="kt">var</span> <span class="n">fileName</span> <span class="p">=</span> <span class="n">fileActivated</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>The FileInformation class of an activated file contains a Stream that enables you to read the complete file content. In the example above, the variable <em>fileContent</em> would contain the full content of the file.</p>
+<p>Depending on the operating system and activation it can be impossible to write on the file, check the <a href="../Internals/#mac">Inside the Plugin Section</a> for more details on the operating systems and situations where writting is not possible.</p>
+<p>If you have the game installed on your device right now, instead of using the site URI you can use the deep linking URI instead:</p>
+<h2 id="configuring-the-plugin">Configuring the Plugin<a class="headerlink" href="#configuring-the-plugin" title="Permanent link">&para;</a></h2>
+<p>The configuration interface is under <strong>Window</strong> -&gt; <strong>ImaginationOverflow</strong> -&gt; <strong>Universal File Association</strong> -&gt; <strong>Configuration</strong></p>
+<p><img alt="configuration.png" src="../imgs/3344962158-configuration.png" /></p>
+<p><img alt="configuration.png" src="../imgs/4123973642-configuration.png" /></p>
+<p>On some platforms, the operating system asks the player what app she wishes to use after opening a file, the <strong>Display Name</strong> allows you to configure what name will the OS show on that occasion.
+The <strong>Steam App Id</strong> is for Steam only games, you can read about Steam integration on its <a href="../SteamIntegration/">section</a>. 
+The plugin allows you to configure the file association globally on a per-platform basis.</p>
+<h3 id="global-configuration">Global Configuration<a class="headerlink" href="#global-configuration" title="Permanent link">&para;</a></h3>
+<p><img alt="configuration.png" src="../imgs/2376466814-configuration.png" /></p>
+<p>If you wish to register the same file associations for all your target platforms, you only require to configure the Global settings, the plugin will propagate all data to all platforms as you build for them.</p>
+<p>While you setup your required extensions the plugin will automatically match them with a <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Mime Type</a> or <a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html">UIT</a></p>
+<h3 id="per-platform-configuration">Per Platform Configuration<a class="headerlink" href="#per-platform-configuration" title="Permanent link">&para;</a></h3>
+<p>When you wish to override any configuration for a specific platform you can do that by clicking on the specific platform checkbox. After that, you just need to fill out the Deep Linking and Domain Association data or leave it empty if you do not wish to support these features for that specific platform. Note that by checking a platform none of the global configurations will be used for that specific platform.</p>
+<p><img alt="configuration.png" src="../imgs/354124551-configuration.png" /></p>
+<p>In the example above, we've changed the <strong>Android</strong> Deep Linking <strong>scheme</strong> to <strong>sudokuzenkaidroid</strong> and disabled the Domain Association capability. The remaining platforms will continue to use the global configurations.</p>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>After your game is deployed to a device, you can test the integration simply by clicking on a configured URI on any app or website. As an example, you can send yourself a message (on any messaging app) or an email with the proper URI.</p>
+<h3 id="editor">Editor<a class="headerlink" href="#editor" title="Permanent link">&para;</a></h3>
+<p>We included a simple interface where you can test your deep linking activation without deploying, you can insert any valid and invalid URIs in order to test your integration. </p>
+<p><img alt="configuration.png" src="../imgs/1238534982-configuration.png" /></p>
+<p>When you press Debug, the LinkActivated will be triggered and your callback called if the application is running in the editor.</p>
+<h3 id="iostvos">iOS/tvOS<a class="headerlink" href="#iostvos" title="Permanent link">&para;</a></h3>
+<h4 id="simulator">Simulator<a class="headerlink" href="#simulator" title="Permanent link">&para;</a></h4>
+<p>After your game is installed on a simulator, open a terminal and run the following command:</p>
+<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;[MY_URI_HERE]&quot;</span>
+</pre></div>
+
+<p><strong>Examples</strong></p>
+<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;sudokuzenkai://puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;https://sudokuzenkai.imaginationoverflow.com/puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
+</pre></div>
+
+<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
+<p>Open a terminal on your development machine, open a terminal (console or powershell) and run the command:</p>
+<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;[MY_URI_HERE]&quot;</span>
+</pre></div>
+
+<p><strong>Examples</strong></p>
+<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;sudokuzenkai://puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;https://sudokuzenkai.imaginationoverflow.com/puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
+</pre></div>
+
+<h3 id="windows-10">Windows 10<a class="headerlink" href="#windows-10" title="Permanent link">&para;</a></h3>
+<p>You can use windows run program to test your integration, just click on the <strong>Windows Button</strong> and <strong>R</strong> and place your URI on the command option and press <strong>Ok</strong>. 
+<img alt="configuration.png" src="../imgs/1928454388-configuration.png" /></p>
+<h3 id="macos">MacOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<p>Open up a terminal and use the <strong>Open</strong> command:
+<div class="codehilite"><pre><span></span>open  <span class="o">[</span>MY_URI_HERE<span class="o">]</span>
+</pre></div></p>
+<div class="codehilite"><pre><span></span>open  sudokuzenkai://puzzle?q<span class="o">=</span>cMOiw5XDlsOXw5zDnMKl
+</pre></div>
+
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>On Linux you can use the xdg-open command to test your integration, open up a terminal and run the following command.</p>
+<div class="codehilite"><pre><span></span>xdg-open  <span class="o">[</span>MY_URI_HERE<span class="o">]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>xdg-open  sudokuzenkai://puzzle?q<span class="o">=</span>cMOiw5XDlsOXw5zDnMKl
+</pre></div>
+
+<h2 id="standalone-caveats">Standalone Caveats<a class="headerlink" href="#standalone-caveats" title="Permanent link">&para;</a></h2>
+<h3 id="build-for-macos">Build for MacOS<a class="headerlink" href="#build-for-macos" title="Permanent link">&para;</a></h3>
+<p>If you make your Mac builds on MacOS the plugin will automatically configure everything that is required in order for it to work correctly. But if you make your MacOs build on Windows you will need to do some extra steps in order to fully configure your build to receive deep link activations. Due to Unity limitations, you <strong>will need a Mac or a MacOs VM</strong> in order to completely use the plugin capabilities.</p>
+<h4 id="building-for-macos-on-windows">Building for MacOS on Windows<a class="headerlink" href="#building-for-macos-on-windows" title="Permanent link">&para;</a></h4>
+<p>When the build is completed you will note that the build process created an extra folder named <strong>UniversalDeepLinkingScripts</strong>. This folder contains all tools required to correctly finish up the plugin configuration:</p>
+<ol>
+<li>Copy the <strong>UniversalDeepLinkingScripts</strong> and your deliverable (<strong>you_game.app</strong>) to your Mac or VM.</li>
+<li>Open a Terminal and navigate to the copied items location.</li>
+<li>Run the setup.sh script:
+<div class="codehilite"><pre><span></span>./setup.sh
+</pre></div></li>
+</ol>
+<p>If everything goes as expected you should see something similar to the following image:
+<img alt="macres.png" src="../imgs/macres.png" /></p>
+<p>For more information on why you need to do this extra step check our <a href="../Internals/#mac">Inside the Plugin Section</a>.</p>
+<h3 id="linux-and-windows">Linux and Windows<a class="headerlink" href="#linux-and-windows" title="Permanent link">&para;</a></h3>
+<p>On Windows and Linux standalone builds, the Deep Linking is only configured when the game runs the first time, so even if the player has the game installed on his machine, if he didn't play at least one time, the Deep Linking connection won't activate the game.</p>
+<p>Windows and Linux builds also only allow players to start your game via a deep link if the player clicks on a deep link after your game is already open the plugin won't react to this new activation.</p>
+<p>For further details on why this happens, you can check our <a href="../Internals/#linux-and-windows">Inside the Plugin Section</a>.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If you don't own a mac you can always create a <a href="https://techsviewer.com/install-macos-high-sierra-vmware-windows/">Mac VM</a></li>
+<li>If you are targetting a platform that the plugin doesn't support, you will find that building to an unsupported platform will yield an error stating that the assembly <strong>ImaginationOverflow.UniversalDeepLinking.Platform.dll</strong> is not present. To fix this you will find a dummy assembly under Assets\Plugins\ImaginationOverflow\UniversalDeepLinking\libs\Dummy, configure it to be included on the unsupported platform that you are targetting and the error should be fixed.</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../DomainAssociation/" title="Domain Association" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Domain Association
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 ImaginationOverflow
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://imaginationoverflow.com" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://twitter.com/ImaginationOver" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/imaginationoverflowpt/" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://store.steampowered.com/developer/imaginationoverflow" class="md-footer-social__link fa fa-steam"></a>
+    
+      <a href="https://play.google.com/store/apps/dev?id=4645635746246236605" class="md-footer-social__link fa fa-android"></a>
+    
+      <a href="https://itunes.apple.com/us/developer/diogo-cardoso/id1294879672" class="md-footer-social__link fa fa-apple"></a>
+    
+      <a href="https://www.microsoft.com/en-us/search/shop?q=ImaginationOverflow" class="md-footer-social__link fa fa-windows"></a>
+    
+      <a href="https://discord.gg/5TYmJtY" class="md-footer-social__link fa fa-support"></a>
+    
+      <a href="mailto:contact@imaginationoverflow.com" class="md-footer-social__link fa fa-mail-reply"></a>
+    
+      <a href="https://www.linkedin.com/in/diogocardoso89/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.patreon.com/imaginationoverflow/posts" class="md-footer-social__link fa fa-feed"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a59e2a89.js"></script>
+      
+      <script>app.initialize({version:"0.17.4",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-23","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
