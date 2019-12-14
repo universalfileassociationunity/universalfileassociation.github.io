@@ -23,17 +23,17 @@ Table of Content:
 03/ header
 04/ slider
 05/ photography
-06/ button 
-07/ work 
+06/ button
+07/ work
 08/ team
-09/ contact 
-10/ price 
-11/ portfolio 
-12/ blog 
-13/ sidebar  
-13/ page-header  
-13/ project  
-13/ we-dope  
+09/ contact
+10/ price
+11/ portfolio
+12/ blog
+13/ sidebar
+13/ page-header
+13/ project
+13/ we-dope
 13/ progress
 13/ comingsoon
 13/ error
@@ -1718,7 +1718,7 @@ iframe {
 /* Banner Nine css
 ============================================================================================ */
 .banner_nine_area {
-  background: url(../img/banner/banner-5.jpg) no-repeat scroll center center;
+  background: url(../img/banner/banner-4.jpg) no-repeat scroll center center;
   background-size: cover;
   padding-top: 120px;
   padding-bottom: 50px;
@@ -1739,7 +1739,7 @@ iframe {
   color: #000;
 }
 
-.available_platforms 
+.available_platforms
 {
   font-family: "Heebo", sans-serif;
   color: #fff;
@@ -3051,13 +3051,13 @@ iframe {
   position: absolute;
   right: -94px;
   background: #dacafc;
-  background: -moz-linear-gradient(45deg, #642B73 0%, #C6426E 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, #642B73), color-stop(100%, #C6426E));
-  background: -webkit-linear-gradient(45deg, #642B73 0%, #C6426E 100%);
-  background: -o-linear-gradient(45deg, #642B73 0%, #C6426E 100%);
-  background: -ms-linear-gradient(45deg, #642B73 0%, #C6426E 100%);
-  background: linear-gradient(45deg, #642B73 0%, #C6426E 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#642B73', endColorstr='#C6426E', GradientType=1 );
+  background: -moz-linear-gradient(45deg, #3F50B5 0%, #4c3fb5 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, #3F50B5), color-stop(100%, #4c3fb5));
+  background: -webkit-linear-gradient(45deg, #3F50B5 0%, #4c3fb5 100%);
+  background: -o-linear-gradient(45deg, #3F50B5 0%, #4c3fb5 100%);
+  background: -ms-linear-gradient(45deg, #3F50B5 0%, #4c3fb5 100%);
+  background: linear-gradient(45deg, #3F50B5 0%, #4c3fb5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3F50B5', endColorstr='#4c3fb5', GradientType=1 );
   z-index: 1;
   top: -28px;
 }
@@ -3078,15 +3078,15 @@ iframe {
   content: "";
   width: 64px;
   height: 64px;
-  border-radius: 50%; 
+  border-radius: 50%;
   background: #dacafc;
-  background: -moz-linear-gradient(45deg, rgba(100, 43, 115, 0.4) 0%, rgba(198, 66, 110, 0.4) 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(100, 43, 115, 0.4)), color-stop(100%, #C6426E));
-  background: -webkit-linear-gradient(45deg, rgba(100, 43, 115, 0.4) 0%, rgba(198, 66, 110, 0.4) 100%);
-  background: -o-linear-gradient(45deg, rgba(100, 43, 115, 0.4) 0%, rgba(198, 66, 110, 0.4) 100%);
-  background: -ms-linear-gradient(45deg, rgba(100, 43, 115, 0.4) 0%, rgba(198, 66, 110, 0.4) 100%);
-  background: linear-gradient(45deg, rgba(100, 43, 115, 0.4) 0%, rgba(198, 66, 110, 0.4) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dacafc', endColorstr='#9ecbfc', GradientType=1 );
+  background: -moz-linear-gradient(45deg, rgba(63, 80, 181, 0.4) 0%, rgba(76, 63, 181, 0.4) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(76, 63, 181, 0.4)), color-stop(100%, #C6426E));
+  background: -webkit-linear-gradient(45deg, rgba(63, 80, 181, 0.4) 0%, rgba(76, 63, 181, 0.4) 100%);
+  background: -o-linear-gradient(45deg, rgba(63, 80, 181, 0.4) 0%, rgba(76, 63, 181, 0.4) 100%);
+  background: -ms-linear-gradient(45deg, rgba(63, 80, 181, 0.4) 0%, rgba(76, 63, 181, 0.4) 100%);
+  background: linear-gradient(45deg, rgba(63, 80, 181, 0.4) 0%, rgba(76, 63, 181, 0.4) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3F50B5', endColorstr='#4c3fb5', GradientType=1 );
   position: absolute;
   top: -3px;
   left: -3px;
@@ -3098,10 +3098,10 @@ iframe {
 }
 
 .app_feature_item .round_icon i {
-  background: -webkit-linear-gradient(left, #642B73, #C6426E);
-  background: -webkit-gradient(linear, left top, right top, from(#642B73), to(#C6426E));
-  background: -o-linear-gradient(left, #642B73, #C6426E);
-  background: linear-gradient(left, #642B73, #C6426E);
+  background: -webkit-linear-gradient(left, #3F50B5, #4c3fb5);
+  background: -webkit-gradient(linear, left top, right top, from(#3F50B5), to(#4c3fb5));
+  background: -o-linear-gradient(left, #3F50B5, #4c3fb5);
+  background: linear-gradient(left, #3F50B5, #4c3fb5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 3;
@@ -3125,10 +3125,10 @@ iframe {
 }
 
 .app_feature_item:hover h4 {
-  background: -webkit-linear-gradient(left, #642B73, #C6426E);
-  background: -webkit-gradient(linear, left top, right top, from(#C6426E), to(#C6426E));
-  background: -o-linear-gradient(left, #642B73, #C6426E);
-  background: linear-gradient(left, #642B73, #C6426E);
+  background: -webkit-linear-gradient(left, #3F50B5, #4c3fb5);
+  background: -webkit-gradient(linear, left top, right top, from(#3F50B5), to(#4c3fb5));
+  background: -o-linear-gradient(left, #3F50B5, #4c3fb5);
+  background: linear-gradient(left, #3F50B5, #4c3fb5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -3888,7 +3888,7 @@ iframe {
 
 /* End Great Feature Area css
 ============================================================================================ */
-/*app_feature_area_two css 
+/*app_feature_area_two css
 ============================================================================================ */
 .app_feature_area_two {
   position: relative;
@@ -5478,7 +5478,7 @@ iframe {
 
 .border_btn {
   padding: 10px 20px;
-  font: 400 18px/31px "Montserrat", sans-serif;
+  font: 400 16px/26px "Montserrat", sans-serif;
   letter-spacing: 0.36px;
   border: 2px solid #fff;
   display: inline-block;
@@ -5496,7 +5496,7 @@ iframe {
 
 .border_btn:hover {
   background: #fff;
-  color: #eb484d;
+  color: #4c3fb5;
 }
 
 .red_btn {
@@ -5523,7 +5523,7 @@ iframe {
 }
 
 .order_btn {
-  background: #d30039;
+  background: #3f50b5;
   text-transform: uppercase;
   display: inline-block;
   text-align: center;
@@ -5532,15 +5532,15 @@ iframe {
   font-weight: 500;
   color: #fff;
   font-size: 18px;
-  line-height: 50px;
-  border: 1px solid #d30039;
+  line-height: 40px;
+  border: 1px solid #3f50b5;
   -webkit-transition: all 400ms linear 0s;
   -o-transition: all 400ms linear 0s;
   transition: all 400ms linear 0s;
 }
 
 .order_btn:hover {
-  color: #d30039;
+  color: #b54c3f;
   background: transparent;
 }
 
@@ -5838,7 +5838,7 @@ iframe {
 
 /* End Server Price Area css
 ============================================================================================ */
-/*pricing-area-two 
+/*pricing-area-two
 ================================================*/
 .pricing-area-two {
   padding: 100px 0px;
@@ -10567,7 +10567,7 @@ iframe {
   position: relative;
 }
 
-/*h_work_area css 
+/*h_work_area css
 =========================================================*/
 .h_work_area {
   background: #f9faff;
@@ -13315,7 +13315,7 @@ iframe {
 
 /* End Footer Five Area css
 ============================================================================================ */
-/*footer_area_two 
+/*footer_area_two
 =============================================*/
 .footer_area_two {
   text-align: center;
