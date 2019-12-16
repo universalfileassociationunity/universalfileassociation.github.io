@@ -135,15 +135,16 @@
 
 					</div>
 					<div class="form-group" style="width:100%;margin:auto;padding-top:72px">
-					  <label style="color:white">Insert a Deep Link or Associated Domain:</label>
-					  <input id="link_text" type="url" class="form-control" >
-					  <div class="row" style="margin:auto;padding-top:12px">
-						<a id="create_btn" class="order_btn" style="margin:auto;background:#BB3F6E; border-color:#000000" >Create</a>
-						<a id="edit_btn" class="order_btn" style="margin:auto;background:#BB3F6E; border-color:#000000" >Edit</a>
+					  <label style="color:white">Insert the file extension you wish to test:</label>
+					  <input id="ext_text" type="text" class="form-control" >
+					  <label style="color:white">Insert the file content:</label>
+					  <div>
+					  <textarea id="content_text" style="min-height:100px" class="form-control" ></textarea>	
 					  </div>
 					  <div class="row" style="margin:auto;padding-top:12px">
-						<a  id="test_btn"class="order_btn" style="width:100%;background:#652B73; border-color:#000000" >Test</a>
+						<a id="create_btn" class="order_btn" style="margin:auto;background:#BB3F6E; border-color:#000000" >Download</a>
 					  </div>
+					 
 					</div>
         		</div>
         	</div>
@@ -178,28 +179,66 @@
 			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 		};
 
+		function UpdateUri()
+		{
+			var v = $("#ext_text").val();
+			
+			
+			if(v == "")
+				return;
+				
+				
+			if(v[0] == '.')
+			{
+				v = v.substring(1);
+				$("#ext_text").val(v);
+			}			
+			
+			var c = $("#content_text").val();
+			history.pushState({}, "", "?e="+encodeURIComponent(v)+"&c="+c);
+		}
 		
 		function genButton()
 		{
-			var v = $("#link_text").val();
+			UpdateUri();
+			
+			var v = $("#ext_text").val();
+			
+			
 			if(v == "")
 				return;
-			history.pushState({}, "", "?l="+encodeURIComponent(v));
+				
+				
+			if(v[0] == '.')
+			{
+				v = v.substring(1);
+				$("#ext_text").val(v);
+			}			
 			
-			edit_btn.show();
-			test_btn.show();
+			var c = $("#content_text").val();
+			var a = window.document.createElement('a');
+			a.href = window.URL.createObjectURL(new Blob([c], null));
+			a.download = "ufa_" + v + "."+v;
+
+			// Append anchor to body.
+			document.body.appendChild(a);
+			a.click();
+
+			// Remove anchor from body
+			document.body.removeChild(a);
 			
-			create_btn.hide();
-			
-			test_btn.attr("href", v);
+			return;
 		}
+		
 		var test_btn = $("#test_btn");
 		var edit_btn = $("#edit_btn");
 		var create_btn = $("#create_btn");
 		
-		$('#link_text').keypress(function (e) {
+		$('#ext_text').keypress(function (e) {
 		   if(e.which ==13)
 				create_btn.click();
+				
+			UpdateUri();
 		});
 		
 		test_btn.hide();
@@ -209,14 +248,24 @@
 		edit_btn.click(genButton);
 		
 		
-		var link = getUrlParameter("l");
 		
-		if(link )
-		{
-			$("#link_text").val(link);
-			create_btn.click();
-		}
 			
+		var ext = getUrlParameter("e");
+		
+		if(ext )
+		{
+			$("#ext_text").val(ext);
+		}
+		
+		var content = getUrlParameter("c");
+		
+		if(content == false)
+		{
+			content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic"
+		}
+		
+		$("#content_text").val(content);
+		
 		/*
 		var baseUrl = window.location.href;
 		var finalurl = deepLinking + window.location.search;
