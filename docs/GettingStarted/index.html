@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Deeplinking and Domain Association plugin for Unity">
+        <meta name="description" content="File Association and Activation plugin for Unity apps and games">
       
       
         <link rel="canonical" href="https://universaldeeplinking.imaginationoverflow.com/GettingStarted/">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Getting Started - Universal Deeplinking</title>
+        <title>Getting Started - Universal File Association</title>
       
     
     
@@ -94,7 +94,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal Deeplinking" class="md-header-nav__button md-logo">
+        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal File Association" class="md-header-nav__button md-logo">
           
             <img src="../images/logo.svg" width="24" height="24">
           
@@ -108,7 +108,7 @@
           
             
               <span class="md-header-nav__topic">
-                Universal Deeplinking
+                Universal File Association
               </span>
               <span class="md-header-nav__topic">
                 Getting Started
@@ -171,7 +171,7 @@
         <img src="../images/logo.svg" width="48" height="48">
       
     </span>
-    Universal Deeplinking
+    Universal File Association
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -265,54 +265,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
-    iOS/tvOS
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator" title="Simulator" class="md-nav__link">
-    Simulator
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" title="Android" class="md-nav__link">
-    Android
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows-10" title="Windows 10" class="md-nav__link">
-    Windows 10
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#macos" title="MacOS" class="md-nav__link">
-    MacOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" title="Linux" class="md-nav__link">
-    Linux
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -382,18 +334,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../DomainAssociation/" title="Domain Association" class="md-nav__link">
-      Domain Association
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../SteamIntegration/" title="Steam Integration" class="md-nav__link">
       Steam Integration
     </a>
@@ -408,18 +348,6 @@
   <li class="md-nav__item">
     <a href="../Internals/" title="Inside the Plugin" class="md-nav__link">
       Inside the Plugin
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../Showcase/" title="Showcase" class="md-nav__link">
-      Showcase
     </a>
   </li>
 
@@ -503,54 +431,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#iostvos" title="iOS/tvOS" class="md-nav__link">
-    iOS/tvOS
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#simulator" title="Simulator" class="md-nav__link">
-    Simulator
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" title="Android" class="md-nav__link">
-    Android
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows-10" title="Windows 10" class="md-nav__link">
-    Windows 10
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#macos" title="MacOS" class="md-nav__link">
-    MacOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" title="Linux" class="md-nav__link">
-    Linux
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -622,7 +502,7 @@
                 
                   <h1>Getting Started</h1>
                 
-                <p><strong>Universal File Association</strong> plugin enables your apps and games to be configured as the default file handler (e.g .xpto) on iOS, Android, Windows 10 (UWP), Standalone (Linux, Mac, and Windows) and tvOS.</p>
+                <p><strong>Universal File Association</strong> plugin enables your Unity apps and games to be configured as the default file handler (e.g .xpto, .pdf) on iOS, Android, Windows 10 (UWP), Standalone (Linux, Mac, and Windows) and tvOS.</p>
 <h2 id="using-the-plugin">Using the Plugin<a class="headerlink" href="#using-the-plugin" title="Permanent link">&para;</a></h2>
 <p>The plugin uses a single event where you need to register in order to receive file activations on all platforms:</p>
 <p><div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
@@ -669,9 +549,8 @@ Never forget to remove your event registration when the <strong>GameObject</stro
 <span class="p">}</span>
 </pre></div>
 
-<p>The FileInformation class of an activated file contains a Stream that enables you to read the complete file content. In the example above, the variable <em>fileContent</em> would contain the full content of the file.</p>
-<p>Depending on the operating system and activation it can be impossible to write on the file, check the <a href="../Internals/#mac">Inside the Plugin Section</a> for more details on the operating systems and situations where writting is not possible.</p>
-<p>If you have the game installed on your device right now, instead of using the site URI you can use the deep linking URI instead:</p>
+<p>The <em>FileInformation</em> class of an activated file contains a <em>Stream</em> that enables you to read the complete file content. In the example above, the variable <em>fileContent</em> would contain the full content of the file.</p>
+<p>Depending on the operating system and activation type it can be impossible to write on the file, check the <a href="../Internals/#mac">Inside the Plugin Section</a> for more details on the operating systems and situations where writting is not possible.</p>
 <h2 id="configuring-the-plugin">Configuring the Plugin<a class="headerlink" href="#configuring-the-plugin" title="Permanent link">&para;</a></h2>
 <p>The configuration interface is under <strong>Window</strong> -&gt; <strong>ImaginationOverflow</strong> -&gt; <strong>Universal File Association</strong> -&gt; <strong>Configuration</strong></p>
 <p><img alt="configuration.png" src="../imgs/3344962158-configuration.png" /></p>
@@ -682,67 +561,26 @@ The plugin allows you to configure the file association globally on a per-platfo
 <h3 id="global-configuration">Global Configuration<a class="headerlink" href="#global-configuration" title="Permanent link">&para;</a></h3>
 <p><img alt="configuration.png" src="../imgs/2376466814-configuration.png" /></p>
 <p>If you wish to register the same file associations for all your target platforms, you only require to configure the Global settings, the plugin will propagate all data to all platforms as you build for them.</p>
-<p>While you setup your required extensions the plugin will automatically match them with a <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Mime Type</a> or <a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html">UIT</a></p>
+<p>While you setup your required extensions the plugin will automatically match them with a <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Mime Type</a> or <a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html">UIT</a>, these relations between extensions and type format is required by some platforms (e.g iOS, Linux, Android).</p>
 <h3 id="per-platform-configuration">Per Platform Configuration<a class="headerlink" href="#per-platform-configuration" title="Permanent link">&para;</a></h3>
-<p>When you wish to override any configuration for a specific platform you can do that by clicking on the specific platform checkbox. After that, you just need to fill out the Deep Linking and Domain Association data or leave it empty if you do not wish to support these features for that specific platform. Note that by checking a platform none of the global configurations will be used for that specific platform.</p>
+<p>When you wish to override any configuration for a specific platform you can do that by clicking on the specific platform checkbox. After that, you just need to fill out the File Association data or leave it empty if you do not wish to support these features for that specific platform. Note that by checking a platform none of the global configurations will be used for that specific platform. </p>
 <p><img alt="configuration.png" src="../imgs/354124551-configuration.png" /></p>
-<p>In the example above, we've changed the <strong>Android</strong> Deep Linking <strong>scheme</strong> to <strong>sudokuzenkaidroid</strong> and disabled the Domain Association capability. The remaining platforms will continue to use the global configurations.</p>
+<p>In the example above, we've changed the <strong>iOS</strong> <strong>file extension</strong> to <strong>myextios</strong>. The remaining platforms will continue to use the global configurations.</p>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>After your game is deployed to a device, you can test the integration simply by clicking on a configured URI on any app or website. As an example, you can send yourself a message (on any messaging app) or an email with the proper URI.</p>
+<p>After your Unity app or game is deployed to a device, you can test the integration simply by opening a file from one of the types that you registered using the Universal File Association plugin.</p>
+<p>For integration tests you can use our <strong><a href="https://universalfileassociation.imaginationoverflow.com/test">Online Test Tool</a></strong> which allows you to create a simple text file with any extension, and download it directly to your device to be opened.</p>
+<p>Any third party file explorer or email application could also be used to open files and test the plugin integration.</p>
 <h3 id="editor">Editor<a class="headerlink" href="#editor" title="Permanent link">&para;</a></h3>
-<p>We included a simple interface where you can test your deep linking activation without deploying, you can insert any valid and invalid URIs in order to test your integration. </p>
+<p>We included a simple interface where you can test your file association integration without deploying, to access it go to <strong>Window</strong> -&gt; <strong>ImaginationOverflow</strong> -&gt; <strong>Universal File Association</strong> -&gt; <strong>Debug</strong></p>
 <p><img alt="configuration.png" src="../imgs/1238534982-configuration.png" /></p>
-<p>When you press Debug, the LinkActivated will be triggered and your callback called if the application is running in the editor.</p>
-<h3 id="iostvos">iOS/tvOS<a class="headerlink" href="#iostvos" title="Permanent link">&para;</a></h3>
-<h4 id="simulator">Simulator<a class="headerlink" href="#simulator" title="Permanent link">&para;</a></h4>
-<p>After your game is installed on a simulator, open a terminal and run the following command:</p>
-<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;[MY_URI_HERE]&quot;</span>
-</pre></div>
-
-<p><strong>Examples</strong></p>
-<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;sudokuzenkai://puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span>xcrun simctl openurl booted <span class="s2">&quot;https://sudokuzenkai.imaginationoverflow.com/puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
-</pre></div>
-
-<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
-<p>Open a terminal on your development machine, open a terminal (console or powershell) and run the command:</p>
-<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;[MY_URI_HERE]&quot;</span>
-</pre></div>
-
-<p><strong>Examples</strong></p>
-<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;sudokuzenkai://puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span>adb shell am start -W -a android.intent.action.VIEW -d <span class="s2">&quot;https://sudokuzenkai.imaginationoverflow.com/puzzle?q=cMOiw5XDlsOXw5zDnMKl&quot;</span>
-</pre></div>
-
-<h3 id="windows-10">Windows 10<a class="headerlink" href="#windows-10" title="Permanent link">&para;</a></h3>
-<p>You can use windows run program to test your integration, just click on the <strong>Windows Button</strong> and <strong>R</strong> and place your URI on the command option and press <strong>Ok</strong>. 
-<img alt="configuration.png" src="../imgs/1928454388-configuration.png" /></p>
-<h3 id="macos">MacOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
-<p>Open up a terminal and use the <strong>Open</strong> command:
-<div class="codehilite"><pre><span></span>open  <span class="o">[</span>MY_URI_HERE<span class="o">]</span>
-</pre></div></p>
-<div class="codehilite"><pre><span></span>open  sudokuzenkai://puzzle?q<span class="o">=</span>cMOiw5XDlsOXw5zDnMKl
-</pre></div>
-
-<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
-<p>On Linux you can use the xdg-open command to test your integration, open up a terminal and run the following command.</p>
-<div class="codehilite"><pre><span></span>xdg-open  <span class="o">[</span>MY_URI_HERE<span class="o">]</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span>xdg-open  sudokuzenkai://puzzle?q<span class="o">=</span>cMOiw5XDlsOXw5zDnMKl
-</pre></div>
-
+<p>When you press <em>Debug</em>, the <em>FileActivated</em> will be triggered and your callback called if the application is running in the editor.</p>
 <h2 id="standalone-caveats">Standalone Caveats<a class="headerlink" href="#standalone-caveats" title="Permanent link">&para;</a></h2>
 <h3 id="build-for-macos">Build for MacOS<a class="headerlink" href="#build-for-macos" title="Permanent link">&para;</a></h3>
-<p>If you make your Mac builds on MacOS the plugin will automatically configure everything that is required in order for it to work correctly. But if you make your MacOs build on Windows you will need to do some extra steps in order to fully configure your build to receive deep link activations. Due to Unity limitations, you <strong>will need a Mac or a MacOs VM</strong> in order to completely use the plugin capabilities.</p>
+<p>If you make your Mac builds on MacOS the plugin will automatically configure everything that is required in order for it to work correctly. But if you make your MacOs build on Windows you will need to do some extra steps in order to fully configure your build to receive file activations. Due to Unity limitations, you <strong>will need a Mac or a MacOs VM</strong> in order to completely use the plugin capabilities.</p>
 <h4 id="building-for-macos-on-windows">Building for MacOS on Windows<a class="headerlink" href="#building-for-macos-on-windows" title="Permanent link">&para;</a></h4>
-<p>When the build is completed you will note that the build process created an extra folder named <strong>UniversalDeepLinkingScripts</strong>. This folder contains all tools required to correctly finish up the plugin configuration:</p>
+<p>When the build is completed you will note that the build process created an extra folder named <strong>UniversalFileAssociationScripts</strong>. This folder contains all tools required to correctly finish up the plugin configuration:</p>
 <ol>
-<li>Copy the <strong>UniversalDeepLinkingScripts</strong> and your deliverable (<strong>you_game.app</strong>) to your Mac or VM.</li>
+<li>Copy the <strong>UniversalFileAssociationScripts</strong> and your deliverable (<strong>you_game.app</strong>) to your Mac or VM.</li>
 <li>Open a Terminal and navigate to the copied items location.</li>
 <li>Run the setup.sh script:
 <div class="codehilite"><pre><span></span>./setup.sh
@@ -752,13 +590,13 @@ The plugin allows you to configure the file association globally on a per-platfo
 <img alt="macres.png" src="../imgs/macres.png" /></p>
 <p>For more information on why you need to do this extra step check our <a href="../Internals/#mac">Inside the Plugin Section</a>.</p>
 <h3 id="linux-and-windows">Linux and Windows<a class="headerlink" href="#linux-and-windows" title="Permanent link">&para;</a></h3>
-<p>On Windows and Linux standalone builds, the Deep Linking is only configured when the game runs the first time, so even if the player has the game installed on his machine, if he didn't play at least one time, the Deep Linking connection won't activate the game.</p>
-<p>Windows and Linux builds also only allow players to start your game via a deep link if the player clicks on a deep link after your game is already open the plugin won't react to this new activation.</p>
-<p>For further details on why this happens, you can check our <a href="../Internals/#linux-and-windows">Inside the Plugin Section</a>.</p>
+<p>On Windows and Linux standalone builds, the File Association is only configured when the game runs the first time, so even if the player has the game installed on his machine, if he didn't play at least one time, the File association won't activate the app/game.</p>
+<p>Windows and Linux builds also only allow players to start your game via a File Association if the player opens a file after your game is already open the plugin won't react to this new activation. </p>
+<p>For further details on why this happens, and how to work around it, you can check our <a href="../Internals/#linux-and-windows">Inside the Plugin Section</a>.</p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you don't own a mac you can always create a <a href="https://techsviewer.com/install-macos-high-sierra-vmware-windows/">Mac VM</a></li>
-<li>If you are targetting a platform that the plugin doesn't support, you will find that building to an unsupported platform will yield an error stating that the assembly <strong>ImaginationOverflow.UniversalDeepLinking.Platform.dll</strong> is not present. To fix this you will find a dummy assembly under Assets\Plugins\ImaginationOverflow\UniversalDeepLinking\libs\Dummy, configure it to be included on the unsupported platform that you are targetting and the error should be fixed.</li>
+<li>If you are targetting a platform that the plugin doesn't support, you will find that building to an unsupported platform will yield an error stating that the assembly <strong>ImaginationOverflow.UniversalFileAssociation.Platform.dll</strong> is not present. To fix this you will find a dummy assembly under Assets\Plugins\ImaginationOverflow\UniversalFileAssociation\libs\Dummy, configure it to be included on the unsupported platform that you are targetting and the error should be fixed.</li>
 </ul>
                 
                   
@@ -795,13 +633,13 @@ The plugin allows you to configure the file association globally on a per-platfo
           </a>
         
         
-          <a href="../DomainAssociation/" title="Domain Association" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../SteamIntegration/" title="Steam Integration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Domain Association
+                Steam Integration
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -817,7 +655,7 @@ The plugin allows you to configure the file association globally on a per-platfo
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 ImaginationOverflow
+            Copyright &copy; 2020 ImaginationOverflow
           </div>
         
         powered by
@@ -869,7 +707,7 @@ The plugin allows you to configure the file association globally on a per-platfo
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-23","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-27","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Deeplinking and Domain Association plugin for Unity">
+        <meta name="description" content="File Association and Activation plugin for Unity apps and games">
       
       
         <link rel="canonical" href="https://universaldeeplinking.imaginationoverflow.com/SteamIntegration/">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Steam Integration - Universal Deeplinking</title>
+        <title>Steam Integration - Universal File Association</title>
       
     
     
@@ -94,7 +94,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal Deeplinking" class="md-header-nav__button md-logo">
+        <a href="https://universaldeeplinking.imaginationoverflow.com" title="Universal File Association" class="md-header-nav__button md-logo">
           
             <img src="../images/logo.svg" width="24" height="24">
           
@@ -108,7 +108,7 @@
           
             
               <span class="md-header-nav__topic">
-                Universal Deeplinking
+                Universal File Association
               </span>
               <span class="md-header-nav__topic">
                 Steam Integration
@@ -171,7 +171,7 @@
         <img src="../images/logo.svg" width="48" height="48">
       
     </span>
-    Universal Deeplinking
+    Universal File Association
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -196,18 +196,6 @@
   <li class="md-nav__item">
     <a href="../GettingStarted/" title="Getting Started" class="md-nav__link">
       Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../DomainAssociation/" title="Domain Association" class="md-nav__link">
-      Domain Association
     </a>
   </li>
 
@@ -296,18 +284,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../Showcase/" title="Showcase" class="md-nav__link">
-      Showcase
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../About/" title="About" class="md-nav__link">
       About
     </a>
@@ -378,70 +354,70 @@
                 
                   <h1>Steam Integration</h1>
                 
-                <p>Regular Standalone Deep Linking opens up your game when someone clicks on a custom defined URI. But if your game is on Steam you are probably using its SDK or DRM capabilities to further enhance your players' experience.</p>
+                <p>Regular Standalone File Activation opens up your game when someone clicks on a file you registered as the default handler. But if your game is on Steam you are probably using its SDK or DRM capabilities to further enhance your players' experience.</p>
 <p>If you open a Steam game from its installation folder, since it wasn't open via steam it probably won't be able to communicate with valve software in order to report achievements, stats, etc, or it won't simply launch due to the DRM feature.</p>
-<p>So using the regular Deep Linking mechanism where we associate a custom URI to a game executable wouldn't work since the game would possibly lose functionality or simply wouldn't start.</p>
-<p>To avoid this issue, instead of registering your game to your custom URI, we configure the target systems to open steam instead of your game, but we parameterize Steam to open your game as soon as it's initialized.</p>
+<p>So using the regular File Activation mechanism where we associate a file type to a game executable wouldn't work since the game would possibly lose functionality or simply wouldn't start.</p>
+<p>To avoid this issue, instead of registering your game to your desired file type, we configure the target systems to open steam instead of your game, but we parameterize Steam to open your game as soon as it's initialized.</p>
 <h2 id="configuring-steam-integration">Configuring Steam Integration<a class="headerlink" href="#configuring-steam-integration" title="Permanent link">&para;</a></h2>
-<p>To enable the Steam capability of ImaginationOverflow Deep Linking Plugin you first need to have a valid app id, for that you need to get access to <a href="https://partner.steamgames.com/steamdirect">Steam Direct</a>. After that valve will attribute to your game an ID.</p>
+<p>To enable the Steam capability of ImaginationOverflow File Association Plugin you first need to have a valid app id, for that you need to get access to <a href="https://partner.steamgames.com/steamdirect">Steam Direct</a>. After that valve will attribute to your game an ID.</p>
 <p><img alt="szvid.png" src="../imgs/1957370786-szvid.png" /></p>
 <p>As an example, Sudoku Zenkai id is <strong>809850</strong>. </p>
 <p>Then you need to configure the plugin with this id:</p>
 <p><img alt="steamint.png" src="../imgs/2925578033-steamint.png" /></p>
-<p>The final step of the configuration to enable the Steam integration is setting the <em>IsSteamBuild</em> Property under <strong>DeepLinkManager</strong>:</p>
-<div class="codehilite"><pre><span></span><span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalDeepLinking</span><span class="p">.</span><span class="n">DeepLinkManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<p>The final step of the configuration to enable the Steam integration is setting the <em>IsSteamBuild</em> Property under <strong>FileAssociationManager</strong>:</p>
+<div class="codehilite"><pre><span></span><span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
 </pre></div>
 
 <p>If your game is on Steam there is a good chance that you offer DRM-free versions of it on other stores, so don't forget to turn off this option when making DRM-free standalone builds, a good way to do this automatically is using <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if">compilation flags</a>.</p>
 <div class="codehilite"><pre><span></span><span class="cp">#if STEAM_BUILD</span>
-<span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalDeepLinking</span><span class="p">.</span><span class="n">DeepLinkManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="cp">#else</span>
-<span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalDeepLinking</span><span class="p">.</span><span class="n">DeepLinkManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">ImaginationOverflow</span><span class="p">.</span><span class="n">UniversalFileAssociation</span><span class="p">.</span><span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSteamBuild</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
 <span class="cp">#endif</span>
 </pre></div>
 
 <h2 id="mac-and-steam-integration">Mac and Steam Integration<a class="headerlink" href="#mac-and-steam-integration" title="Permanent link">&para;</a></h2>
-<p>Mac Deep Linking works a little different from the Windows and Linux, you have to take special care when integrating the plugin with Mac and Steam. On Linux and Windows, the plugin handles the registration of the Deep Link when the game is first open. This enables the plugin to register whatever it wants on these platforms. On Mac, the Deep Link feature is fully controlled by the OS and the plugin can't change the default configuration, which opens your game directly.</p>
-<p>The OS itself doesn't know that is running a Steam game, so when the user clicks on a custom URI, the OS opens the game executable. This means that you need to explicitly delay the enforcement of the DRM until you know if the game was activated via Deep Linking or not.</p>
-<p>The plugin is configured in a way that when it's running a Steam game on MacOS <strong>it will always</strong> fire the LinkActivated event even if the game wasn't activated via Deep Link. This way is possible to store the Deep Link before enforcing any DRM in the game. </p>
+<p>Mac File Association works a little different from the Windows and Linux, you have to take special care when integrating the plugin with Mac and Steam. On Linux and Windows, the plugin handles the registration of the File Types when the game is first open. This enables the plugin to register whatever it wants on these platforms. On Mac, the file activation feature is fully controlled by the OS and the plugin can't change the default configuration, which opens your game directly.</p>
+<p>The OS itself doesn't know that is running a Steam game, so when the user clicks on a configured file type, the OS opens the game executable. This means that you need to explicitly delay the enforcement of the DRM until you know if the game was activated via file association or not.</p>
+<p>The plugin is configured in a way that when it's running a Steam game on MacOS <strong>it will always</strong> fire the FileActivated event even if the game wasn't activated via file activation. This way is possible to store the file info before enforcing any DRM in the game. </p>
 <h3 id="solution-suggestion">Solution Suggestion<a class="headerlink" href="#solution-suggestion" title="Permanent link">&para;</a></h3>
 <p>Below is the code that we use on Sudoku Zenkai to handle this tricky issue, for Steam integration we are using <a href="https://steamworks.github.io/">Steamworks.NET</a>.</p>
 <p>The user flow for this situation is the following:</p>
 <ol>
-<li>User clicks on a Deep Link.</li>
+<li>User clicks on a file type.</li>
 <li>The game opens</li>
 <li>The game enforces DRM and launches the game on Steam.</li>
 <li>Steam launches (if not already running).</li>
 <li>Steam launches the game.</li>
 </ol>
-<p>To ensure that we process the Deep Link that the user initially clicked we need to save it before enforcing the DRM, in the code below we do exactly that:</p>
+<p>To ensure that we process the file that the user initially clicked we need to save it before enforcing the DRM, in the code below we do exactly that:</p>
 <ol>
-<li>The game is activated via Deep Link.</li>
-<li>The LinkActivated event is triggered.</li>
-<li>Save the link information (since it's impossible to have the game launch on steam via Deep Link)</li>
+<li>The game is activated via file activation.</li>
+<li>The FileActivated event is triggered.</li>
+<li>Save the file information (since it's impossible to have the game launch on steam via file activation)</li>
 <li>Check if the game has steam access, if not restart.</li>
-<li>If we are already on steam, load the previously saved Deep Link</li>
-<li>Resume Deep Link activation.</li>
+<li>If we are already on steam, load the previously saved activation</li>
+<li>Resume file activation.</li>
 </ol>
-<p>This behavior is only possible because <strong>the plugin always triggers</strong> the LinkActivated event (on Steam Mac builds) regardless if it was activated via a Deep Link or not.</p>
+<p>This behavior is only possible because <strong>the plugin always triggers</strong> the FileActivated event (on Steam Mac builds) regardless if it was activated via a file activation or not.</p>
 <div class="codehilite"><pre><span></span>    <span class="k">public</span> <span class="k">void</span> <span class="nf">RegisterForActivation</span><span class="p">()</span>
     <span class="p">{</span>
 <span class="cp">#if UNITY_STANDALONE_OSX &amp;&amp; STEAM_BUILD</span>
-        <span class="n">DeepLinkManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LinkActivated</span> <span class="p">+=</span> <span class="n">SteamOsxActivation</span><span class="p">;</span>
+        <span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">FileActivated</span> <span class="p">+=</span> <span class="n">SteamOsxActivation</span><span class="p">;</span>
 <span class="cp">#else</span>
-        <span class="n">DeepLinkManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LinkActivated</span> <span class="p">+=</span> <span class="n">Instance_LinkActivated</span><span class="p">;</span>
+        <span class="n">FileAssociationManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">FileActivated</span> <span class="p">+=</span> <span class="n">Instance_FileActivated</span><span class="p">;</span>
 <span class="cp">#endif</span>
     <span class="p">}</span>
 
-    <span class="k">private</span> <span class="k">void</span> <span class="nf">SteamOsxActivation</span><span class="p">(</span><span class="n">LinkActivation</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">SteamOsxActivation</span><span class="p">(</span><span class="n">FileInformation</span> <span class="n">s</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="c1">//</span>
-        <span class="c1">//  On Steam OSX builds the plugin triggers the LinkActivated with the  </span>
-        <span class="c1">//  deep link data or with a null Uri if it wasn&#39;t activated </span>
-        <span class="c1">//  via Deep Linking</span>
+        <span class="c1">//  On Steam OSX builds the plugin triggers the FileActivated with the  </span>
+        <span class="c1">//  file information or with a null Path if it wasn&#39;t activated </span>
+        <span class="c1">//  via a file</span>
         <span class="c1">//</span>
-        <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Uri</span><span class="p">)</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
-            <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">SaveDeepLinkActivation</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
+            <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">SaveFileActivation</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 
         <span class="c1">//</span>
         <span class="c1">//  Enforce DRM</span>
@@ -453,28 +429,27 @@
         <span class="p">}</span>
 
         <span class="c1">//</span>
-        <span class="c1">//  We are already running on Steam, so load any saved deep linking </span>
-        <span class="c1">//  activations</span>
+        <span class="c1">//  We are already running on Steam, so load any saved file activations</span>
         <span class="c1">//</span>
-        <span class="n">s</span> <span class="p">=</span> <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">LoadDeepLinkActivation</span><span class="p">();</span>
+        <span class="n">s</span> <span class="p">=</span> <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">LoadSavedFileActiation</span><span class="p">();</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
             <span class="k">return</span><span class="p">;</span>
 
         <span class="c1">//</span>
         <span class="c1">//  Clear the activation ensuring that the game won&#39;t be activated again </span>
-        <span class="c1">//  with the same uri this depends on your storage infrastructure.</span>
+        <span class="c1">//  with the same file, this will depend on your storage infrastructure.</span>
         <span class="c1">//  </span>
-        <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">ClearDeepLinkActivation</span><span class="p">();</span>
+        <span class="n">YourGameStorage</span><span class="p">.</span><span class="n">ClearActivation</span><span class="p">();</span>
 
         <span class="c1">//</span>
-        <span class="c1">//  Process deep link activation</span>
+        <span class="c1">//  Process file activation</span>
         <span class="c1">//</span>
-        <span class="n">Instance_LinkActivated</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">Instance_FileActivated</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
-<p>This behavior only happens when the game is running on Mac and you set the Steam flag to true, on the other combinations the plugin only fires the LinkActivated event in case of an actual activation.</p>
+<p>This behavior only happens when the game is running on Mac and you set the Steam flag to true, on the other combinations the plugin only fires the FileActivated event in case of an actual activation.</p>
                 
                   
                 
@@ -495,7 +470,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../DomainAssociation/" title="Domain Association" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../GettingStarted/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -504,7 +479,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Domain Association
+                Getting Started
               </span>
             </div>
           </a>
@@ -532,7 +507,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 ImaginationOverflow
+            Copyright &copy; 2020 ImaginationOverflow
           </div>
         
         powered by
@@ -584,7 +559,7 @@
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-23","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-41424791-27","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>
