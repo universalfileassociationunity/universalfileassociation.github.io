@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/</loc>
-     <lastmod>2019-10-11</lastmod>
+     <loc>https://universalfileassociation.imaginationoverflow.com/docs/</loc>
+     <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/GettingStarted/</loc>
-     <lastmod>2019-10-11</lastmod>
+     <loc>https://universalfileassociation.imaginationoverflow.com/docs/GettingStarted/</loc>
+     <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/DomainAssociation/</loc>
-     <lastmod>2019-10-11</lastmod>
+     <loc>https://universalfileassociation.imaginationoverflow.com/docs/SteamIntegration/</loc>
+     <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/SteamIntegration/</loc>
-     <lastmod>2019-10-11</lastmod>
+     <loc>https://universalfileassociation.imaginationoverflow.com/docs/Internals/</loc>
+     <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/Internals/</loc>
-     <lastmod>2019-10-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/Showcase/</loc>
-     <lastmod>2019-10-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://universaldeeplinking.imaginationoverflow.com/About/</loc>
-     <lastmod>2019-10-11</lastmod>
+     <loc>https://universalfileassociation.imaginationoverflow.com/docs/About/</loc>
+     <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
