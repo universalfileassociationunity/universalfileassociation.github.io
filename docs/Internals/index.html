@@ -500,7 +500,7 @@ on set intervals check if a specific file was changed when it was changed the ap
         <span class="k">return</span><span class="p">;</span>
 
     <span class="c1">//  Get the activation file path.</span>
-    <span class="kt">var</span> <span class="n">filePath</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+    <span class="kt">var</span> <span class="n">filePath</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
 
     <span class="c1">//  Check if your app/game is running</span>
     <span class="k">if</span><span class="p">(</span><span class="n">Process</span><span class="p">.</span><span class="n">GetProcessesByName</span><span class="p">(</span><span class="s">&quot;&lt;your app/game&gt;&quot;</span><span class="p">).</span><span class="n">Length</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
